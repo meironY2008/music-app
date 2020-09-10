@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 var mysql = require('mysql');
 const app = express();
@@ -11,13 +12,12 @@ function logger (req, res, next) {
 }
 
 let mysqlCon = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "meiron12",
-    database: "music_app",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     multipleStatements: true
   });
-
 mysqlCon.connect(err => {
     if (err) throw err;
     console.log("Connected!");
@@ -33,19 +33,9 @@ app.get('/songs', (req, res) => {
       });
 });
 
-// app.get('/song/:id', async (req, res) =>{
-    // let sql = `SELECT * FROM songs WHERE song_id = ${req.params.id};`
-//     mysqlCon.query(sql, (error, results, fields) => {
-//         if (error) {
-//             res.send(error.message);
-//             throw error;
-//         };
-//         res.send(results);
-//       });
-// });
 
-app.get('/song/:id', async (req, res) =>{
-    mysqlCon.query('SELECT * FROM songs WHERE song_id = ? AND song_name = ?',[req.params.id,'asdf'], (error, results, fields) => {
+app.get('/songs/:idOrTitle', async (req, res) =>{
+    mysqlCon.query('SELECT * FROM songs WHERE id = ? OR title LIKE ?',[req.params.idOrTitle,`${req.params.idOrTitle}`], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
