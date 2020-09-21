@@ -6,7 +6,7 @@ CREATE DATABASE music_app;
 USE music_app;
 
 CREATE TABLE `Songs`(
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `Song_id` INT NOT NULL AUTO_INCREMENT,
     `Title` VARCHAR(255) NOT NULL,
     `Artist_id` INT NOT NULL,
     `Album_id` INT NOT NULL,
@@ -16,49 +16,46 @@ CREATE TABLE `Songs`(
     `Releasd_at` DATE NOT NULL,
     `Upload_at` DATE NOT NULL,
     `youtube` VARCHAR(255) NOT NULL,
-    `Library_id` INT NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`Song_id`)
     
 );
 
 CREATE TABLE `Albums`(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `Name` VARCHAR(255) NOT NULL,
+    `Album_id` INT NOT NULL AUTO_INCREMENT,
+    `Album_Name` VARCHAR(255) NOT NULL,
     `Artist_id` INT NOT NULL,
-    `Cover_image` VARCHAR(255) NOT NULL,
+    `Cover_img` VARCHAR(255) NOT NULL,
     `Released_at` DATE NOT NULL,
     `Uploaded_at` DATE NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`Album_id`)
     
 );
 
 CREATE TABLE `Artists`(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `Name` VARCHAR(255) NOT NULL,
+    `Artist_id` INT NOT NULL AUTO_INCREMENT,
+    `Artist_Name` VARCHAR(255) NOT NULL,
     `Cover_img` varchar(255),
     `Uploaded_at` DATE NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`Artist_id`)
 );
 
 CREATE TABLE `Playlists`(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `Name` VARCHAR(255) NOT NULL,
+    `Playlist_id` INT NOT NULL AUTO_INCREMENT,
+    `Playlist_Name` VARCHAR(255) NOT NULL,
     `Cover_img` VARCHAR(255) NOT NULL,
     `Uploaded_at` DATE NOT NULL,
-    `Library_id` INT NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`Playlist_id`)
 	
 );
 
 CREATE TABLE `Libraries`(
-    `id` INT NOT NULL AUTO_INCREMENT,
     `User_id` INT NOT NULL,
-    PRIMARY KEY (`id`)
-    
+    `Song_id` INT NOT NULL,
+    `Playlist_id`INT NOT NULL
 );
 
 CREATE TABLE `Users`(
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `User_id` INT NOT NULL AUTO_INCREMENT,
     `Username` VARCHAR(255) UNIQUE NOT NULL,
     `Email` VARCHAR(255) UNIQUE NOT NULL,
     `Password` CHAR(255) NOT NULL,
@@ -66,34 +63,31 @@ CREATE TABLE `Users`(
     `Is_admin` TINYINT(1) NOT NULL,
     `Preferences` JSON NOT NULL,
     `Remeber_token` TINYINT(1) NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`User_id`)
 );
 
 CREATE TABLE `Interactions`(
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `Interaction_id` INT NOT NULL AUTO_INCREMENT,
     `Song_id` INT NOT NULL,
     `User_id` INT NOT NULL,
     `Is_liked` TINYINT(1) NOT NULL,
     `Play_count` INT NOT NULL,
     `Created_at` DATE NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`Interaction_id`)
 );
 
-ALTER TABLE songs
-ADD CONSTRAINT FK_ARTISTS_ID_SONGS FOREIGN KEY (`Artist_id`) REFERENCES Artists(`id`) ON DELETE CASCADE,
-ADD    CONSTRAINT FK_Album_ID_SONGS FOREIGN KEY (`Album_id`) REFERENCES Albums(`id`) ON DELETE CASCADE,
-ADD    CONSTRAINT FK_Library_ID_SONGS FOREIGN KEY(`Library_id`) REFERENCES Libraries(`id`) ON DELETE CASCADE;
+ALTER TABLE `Songs`
+ADD CONSTRAINT `FK_Artist_id_songs` FOREIGN KEY (`Artist_id`) REFERENCES `Artists`(`Artist_id`)  ON DELETE CASCADE,
+ADD CONSTRAINT `FK_Album_id_songs` FOREIGN KEY (`Album_id`) REFERENCES `Albums`(`Album_id`) ON DELETE CASCADE;
+   
+ALTER TABLE `Albums`
+ADD CONSTRAINT `FK_Artist_id_albums` FOREIGN KEY(`Artist_id`) REFERENCES `Artists`(`Artist_id`) ON DELETE CASCADE;
 
-ALTER TABLE Albums
-ADD CONSTRAINT `FK_artist_id_Albums` FOREIGN KEY(`Artist_id`) REFERENCES `Artists`(`id`) ON DELETE CASCADE;
+ALTER TABLE `Libraries`
+ADD CONSTRAINT `FK_User_id_libraries` FOREIGN KEY(`User_id`) REFERENCES `Users`(`User_id`) ON DELETE CASCADE,
+ADD CONSTRAINT `FK_Song_id_libraries` FOREIGN KEY(`Song_id`) REFERENCES `Songs`(`Song_id`) ON DELETE CASCADE,
+ADD CONSTRAINT `FK_Playlist_id_libraries` FOREIGN KEY(`Playlist_id`) REFERENCES `Playlists`(`Playlist_id`) ON DELETE CASCADE;
 
-ALTER TABLE Playlists
-ADD CONSTRAINT `FK_library_id_Playlists` FOREIGN KEY(`Library_id`) REFERENCES `Libraries`(`id`) ON DELETE CASCADE;
-
-ALTER TABLE Libraries
-ADD CONSTRAINT `FK_user_id_Libraries` FOREIGN KEY(`User_id`) REFERENCES `Users`(`id`) ON DELETE CASCADE;
-
-ALTER TABLE Interactions
-ADD CONSTRAINT `FK_user_id_Interactions` FOREIGN KEY(`User_id`) REFERENCES `Users`(`id`),
-ADD CONSTRAINT `FK_song_id_Interactions` FOREIGN KEY(`Song_id`) REFERENCES `Songs`(`id`);
-
+ALTER TABLE `Interactions`
+ADD CONSTRAINT `FK_Song_id_interactions` FOREIGN KEY(`Song_id`) REFERENCES `Songs`(`Song_id`),
+ADD CONSTRAINT `FK_User_id_interactions` FOREIGN KEY(`User_id`) REFERENCES `Users`(`User_id`);
