@@ -74,12 +74,12 @@ body {
   overflow: auto;
 }
 
-.media {
+/* .media {
   border-radius: 10% 10% 10% 10%;
   height: 350px;
   width: 350px;
   /* border: 5px dashed red; */
-}
+/* } */
 
 .carousel {
   width: 85%;
