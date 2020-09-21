@@ -120,6 +120,22 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    transition: 280ms;
+    /* max-width: 400px; */
+}
+
+.songTitleContainer:hover {
+    background-color: black;
+    color: var(--beau-blue);
+    border: 2px solid var(--beau-blue);
+    border-radius: 2%;
+    box-shadow: 2px 5px 5px 2px black;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
     /* max-width: 400px; */
 }
 
