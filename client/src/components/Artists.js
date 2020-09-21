@@ -1,28 +1,36 @@
-import React,{useEffect,useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+import './Artists.css';
 
+export default function Artists() {
 
-export default function  Artists() {
-
-    const[artists,setArtists]=useState([]);
-
-    const artistsShow = async () =>{
-        const artistsArr =await( await axios.get('/artists')).data;
-        console.log(artistsArr);
-        setArtists( artistsArr.map(artist => {
-           return <li key={artist.id}>{artist.Name}</li>;
-        }) )  
+    const [artists, setArtists] = useState([]);
+    
+    const showArtists = async () => {
+        const { data } = await axios.get('/artists');
+        const artistsArr = data;
+        setArtists(artistsArr.map(artist => {
+            return (
+                <div key={artist.Artist_id}>
+                    <Link to={`/artists/${artist.Artist_id}`} className='artistLink'>
+                        <div className='artistImageContainer'>
+                            <img src={artist.Cover_img} alt={artist.Artist_Name} className='artistImage' />
+                        </div>
+                        <div className='artistName'>{artist.Artist_Name}</div>
+                    </Link>
+                </div>
+            );
+        }));
     }
 
     useEffect(() => {
-        artistsShow()
-    }, [])
-
+        showArtists()
+    }, []);
+    
     return (
-        <div >
-            <ol>
-                {artists}
-            </ol>
+        <div className='artistContainer'>
+            {artists}
         </div>
     )
 }

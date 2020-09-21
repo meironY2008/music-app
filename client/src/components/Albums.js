@@ -1,28 +1,36 @@
-import React,{useEffect,useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+import './Albums.css';
 
+export default function Albums() {
 
-export default function  Albums() {
-
-    const[albums,setAlbums]=useState([]);
-
-    const albumsShow = async () =>{
-        const albumsArr =await( await axios.get('/albums')).data;
-        console.log(albumsArr);
-        setAlbums( albumsArr.map(album => {
-           return <li key={album.id}>{album.Name}</li>;
-        }) )  
+    const [albums, setAlbums] = useState([]);
+    
+    const showAlbums = async () => {
+        const { data } = await axios.get('/albums');
+        const albumsArr = data;
+        setAlbums(albumsArr.map(album => {
+            return (
+                <div key={album.Album_id}>
+                    <Link to={`/albums/${album.Album_id}`} className='albumLink'>
+                        <div className='albumImageContainer'>
+                            <img src={album.Cover_img} alt={album.Album_Name} className='albumImage' />
+                        </div>
+                        <div className='albumName'>{album.Album_Name}</div>
+                    </Link>
+                </div>
+            );
+        }));
     }
 
     useEffect(() => {
-        albumsShow()
-    }, [])
-
+        showAlbums()
+    }, []);
+    
     return (
-        <div >
-            <ol>
-                {albums}
-            </ol>
+        <div className='albumContainer'>
+            {albums}
         </div>
     )
 }

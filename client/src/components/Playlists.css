@@ -1,0 +1,35 @@
+.playlistsContainer {
+    width: 900px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .playlistImageContainer {
+    height: 200px;
+    width: 200px;
+    border-radius: 7%;
+    margin-bottom: 5px;
+  }
+
+  .playlistImage {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .playlistName {
+      margin-bottom: 25px;
+      width: 200px;
+      text-align: center;
+      background-color: black;
+      border-radius: 7%;
+  }
+
+  .playlistLink {
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      color: var(--max-red);
+  }

@@ -1,0 +1,58 @@
+#songTitle {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    border-top: 1px solid var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+/* #info-section {
+} */
+
+#info {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    width: 300px;
+    margin-left: 2em;
+}
+
+#info-images-container {
+    width: 400px;
+    justify-content: space-around;
+    /* margin: auto; */
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.song-info-image-container {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.song-info-image {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.song-info-title {
+    margin-bottom: 25px;
+    font-size: 15px;
+    width: 120px;
+    text-align: center;
+    background-color: black;
+    border-radius: 7%;
+}
+
+.songPageLink {
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--max-red);
+}

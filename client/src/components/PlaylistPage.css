@@ -1,0 +1,82 @@
+#playlistName {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    border-top: 1px solid var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#playlistWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#playlistImageContainer {
+    height: 350px;
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    margin-left: 10em;
+}
+
+#playlistPageImage {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px 2px black;
+    object-fit: cover;
+}
+
+
+#playlist-song-section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+}
+
+#songs-of-playlist {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    width: 200px;
+    margin-right: 7em;
+}
+
+
+#playlist-song-container {
+    width: 80%;
+    max-width: 350px;
+    overflow: auto;
+}
+
+.songTitleContainer {
+    background-color: black;
+    border: 1px solid var(--max-red);
+    border-radius: 2%;
+    box-shadow: 2px 5px 5px 2px black;
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    /* max-width: 400px; */
+}
+
+.artistSongTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+}
+
+.playlistPageLink {
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--max-red);
+}

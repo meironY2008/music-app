@@ -1,0 +1,137 @@
+#artistName {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    border-top: 1px solid var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#wrapper {
+    display: flex;
+    /* flex-flow: row wrap; */
+    flex-direction: row;
+    /* justify-content: left; */
+    width: 100%;
+}
+
+#artistImageContainer {
+    height: 350px;
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    margin-left: 2em;
+}
+
+#artistPageImage {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px 2px black;
+    object-fit: cover;
+}
+
+#albumSection {
+    display: flex;
+    flex-flow: column wrap;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    align-items: center;
+    width:100%;
+    margin-left: 3em;
+    overflow: auto;
+}
+
+#artistAlbums {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    width: 300px;
+    margin-right: 4em;
+}
+
+#albumsContainer {
+    width: 400px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.albumImagePageContainer {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.albumPageImage {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.albumPageName {
+    margin-bottom: 25px;
+    font-size: 15px;
+    width: 120px;
+    text-align: center;
+    background-color: black;
+    border-radius: 7%;
+}
+
+#songSection {
+    display: flex;
+    flex-flow: column wrap;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    align-items: center;
+    width: 100%;
+    /* margin-right: 1em; */
+    overflow: auto;
+}
+
+#artistSongs {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    width: 200px;
+    margin-right: 7em;
+}
+
+
+#songsContainer {
+    width: 80%;
+    max-width: 350px;
+    overflow: auto;
+}
+
+.songTitleContainer {
+    background-color: black;
+    border: 1px solid var(--max-red);
+    border-radius: 2%;
+    box-shadow: 2px 5px 5px 2px black;
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    /* max-width: 400px; */
+}
+
+.artistSongTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+}
+
+.artistPageLink {
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--max-red);
+}
