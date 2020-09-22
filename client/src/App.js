@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Songs from './components/Songs';
 import Albums from './components/Albums';
 import Artists from './components/Artists';
 import Playlists from './components/Playlists';
-import NavBar from './components/NavBar';
 import ArtistPage from './components/ArtistPage';
 import SongPage from './components/SongPage';
 import AlbumPage from './components/AlbumPage';
@@ -20,10 +18,8 @@ function App() {
 
   return (
     <Router>
-      {/* <Header /> */}
       <FadeMenu />
       <div className="container">
-        {/* <FadeMenu /> */}
         <div id="page">
           <Switch>
             <Route path="/" component={Home} exact />

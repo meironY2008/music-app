@@ -1,0 +1,79 @@
+h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--rufous-red);
+    border-bottom: 1px solid var(--rufous-red);
+    width: 450px;
+    padding-bottom: 2px;
+    margin-bottom: 25px;
+}
+
+.carousel {
+  width: 85%;
+  margin: auto;
+  margin-top: 25px;
+  height: 450px;
+}
+
+.carousel-image-container {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: 280ms;
+}
+
+.carousel-image-container:hover {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.carousel-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.carousel-text {
+  margin: auto;
+  font-size: 15px;
+  max-width: 150px;
+  text-align: center;
+  background-color: black;
+  border-radius: 7%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-icon-container {
+  height: 150px;
+  width: 150px;
+  background-color: black;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: 280ms;
+}
+
+.song-icon-container:hover {
+  height: 150px;
+  width: 150px;
+  background-color: black;
+  color: var(--beau-blue);
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.carouselLink {
+  text-decoration: none;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--max-red);
+}
+
+.carouselLink:hover {
+    text-decoration: none;
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--beau-blue);
+}

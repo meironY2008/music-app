@@ -7,7 +7,7 @@ INSERT INTO `artists`
 VALUES ('1', 'The Beatles', 'https://rb.gy/ykve5y', '2020-09-09'),
 ('2', 'Shinedown', 'https://rb.gy/csm1xt', '2020-09-09'),
 ('3', 'Justin Timberlake', 'https://rb.gy/76zfna', '2020-09-10'),
-('4', 'Green Day', 'https://rb.gy/45mskd', '2020-09-10'),
+('4', 'Green Day', 'https://rb.gy/6qsqxj', '2020-09-10'),
 ('5', 'Aerosmith', 'https://rb.gy/pfyomj', '2020-09-10'),
 ('6', 'Queen', 'https://rb.gy/pfhtly', '2020-09-10'),
 ('7', 'Coldplay', 'https://rb.gy/od46um', '2020-09-10'),
