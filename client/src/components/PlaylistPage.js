@@ -20,7 +20,7 @@ export default function PlaylistPage() {
     const showSongsList = async () => {
         const songs = await getSongs();
         // console.log(songs);
-        const { data } = await axios.get(`/playlist/songs/${id}`);
+        const { data } = await axios.get(`/playlists/songs/${id}`);
         let songsArr = [];
         for (let i = 0; i < data.length; i++) {
             songsArr.push(songs.find(song => song.Song_id == data[i].Song_id));

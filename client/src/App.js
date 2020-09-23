@@ -19,7 +19,6 @@ function App() {
   return (
     <Router>
       <FadeMenu />
-      <div className="container">
         <div id="page">
           <Switch>
             <Route path="/" component={Home} exact />
@@ -34,7 +33,6 @@ function App() {
             <Route component={Error} />
           </Switch>
         </div>
-      </div>
     </Router>
   );
 }
