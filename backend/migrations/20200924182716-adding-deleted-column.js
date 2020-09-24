@@ -1,13 +1,10 @@
 'use strict';
 
+const { sequelize } = require("../models");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    await queryInterface.addColumn('Albums','deleted_at',Sequelize.DATE)
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -19,3 +16,4 @@ module.exports = {
      */
   }
 };
+

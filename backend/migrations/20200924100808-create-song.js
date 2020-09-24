@@ -1,40 +1,43 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Albums', {
+    // await queryInterface.dropTable('Songs');
+    await queryInterface.createTable('Songs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        field: "album_id"
+        type: Sequelize.INTEGER
       },
-      albumName: {
-        type: Sequelize.STRING,
-        field: "album_name"
+      title: {
+        type: Sequelize.STRING
       },
-      artistId: {
-        type: Sequelize.INTEGER,
-        field: "artist_id"
+      length: {
+        type: Sequelize.INTEGER
       },
-      coverImg: {
-        type: Sequelize.STRING,
-        field: "cover_img"
+      artist_id: {
+        type: Sequelize.INTEGER
       },
-      releasedAt: {
+      album_id: {
+        type: Sequelize.INTEGER
+      },
+      lyrics: {
+        type: Sequelize.TEXT
+      },
+      released_at: {
         type: Sequelize.DATEONLY,
-        field: "released_at"
+        field: "realeased_at"
       },
-      uploadedAt: {
+      uploaded_at: {
         type: Sequelize.DATEONLY,
         field: "uploaded_at"
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
         field: "created_at"
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
         field: "updated_at"
@@ -42,6 +45,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Albums');
+    await queryInterface.dropTable('Songs');
   }
 };

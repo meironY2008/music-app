@@ -13,33 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Artist, {
         foreignKey: 'artistId'
       });
-      this.hasMany(models.Song);
+      this.hasMany(models.Song,{
+        foreignKey:'albumId',
+        as:'songs'
+      });
     }
   };
   Album.init({
-    albumName: {
-      type: DataTypes.STRING,
-      field: "album_name"
-    },
-    artistId: {
-      type: DataTypes.INTEGER,
-      field: "artist_id"
-    },
-    coverImg: {
-      type: DataTypes.STRING,
-      field: "cover_img"
-    },
-    releasedAt: {
-      type: DataTypes.DATE,
-      field: "released_at"
-    },
-    uploadedAt: {
-      type: DataTypes.DATE,
-      field: "uploaded_at"
-    }
+    albumName: DataTypes.STRING,
+    artistId: DataTypes.INTEGER,
+    coverImg: DataTypes.STRING,
+    releasedAt: DataTypes.DATEONLY,
+    uploadedAt: DataTypes.DATEONLY,
   }, {
     sequelize,
     modelName: 'Album',
+    paranoid:true
   });
   return Album;
 };

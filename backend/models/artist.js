@@ -10,16 +10,23 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.Song);
-      this.hasMany(models.Album);
+      this.hasMany(models.Song,{
+        foreignKey:'artistId',
+        as:'songs'
+      });
+      this.hasMany(models.Album,{
+        foreignKey:'artistId',
+        as:'albums'
+      });
       // define association here
     }
   };
   Artist.init({
-    artisrName:{type: DataTypes.STRING, field:"Artist_Name"},
+    artistName:{type: DataTypes.STRING, field:"Artist_Name"},
     coverImg:{ type: DataTypes.STRING,field:"Cover_img"},
     uploadedAt:{ type: DataTypes.DATE, field:"uploaded_at"}
   }, {
+    paranoid:true,
     sequelize,
     modelName: 'Artist',
   });
