@@ -12,20 +12,21 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.Artist,{
-        foreignKey:'artistId'
+        foreignKey:'artistId',
+        onDelete: 'cascade'
       })
       this.belongsTo(models.Album,{
-        foreignKey:'albumId'
+        foreignKey:'albumId',
+        onDelete: 'cascade'
       })
       this.hasMany(models.Library,{
-        foreignKey:'songId',
-        as:'playlists'
+        foreignKey:'songId'
       })
     }
   };
   Song.init({
     title: DataTypes.STRING,
-    YouTube: DataTypes.STRING,
+    youTube: DataTypes.STRING,
     artistId: DataTypes.INTEGER,
     albumId: DataTypes.INTEGER,
     length: DataTypes.INTEGER,
@@ -35,6 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     uploadedAt: DataTypes.DATE
   },
   {
+    paranoid:true,
     sequelize,
     modelName: 'Song',
   });

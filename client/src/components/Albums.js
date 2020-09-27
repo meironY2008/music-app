@@ -12,12 +12,12 @@ export default function Albums() {
         const albumsArr = data;
         setAlbums(albumsArr.map(album => {
             return (
-                <div key={album.Album_id}>
-                    <Link to={`/albums/${album.Album_id}`} className='albumLink'>
+                <div key={album.id}>
+                    <Link to={`/albums/${album.id}`} className='albumLink'>
                         <div className='albumImageContainer'>
-                            <img src={album.Cover_img} alt={album.Album_Name} className='albumImage' />
+                            <img src={album.coverImg} alt={album.albumName} className='albumImage' />
                         </div>
-                        <div className='albumName'>{album.Album_Name}</div>
+                        <div className='albumName'>{album.albumName}</div>
                     </Link>
                 </div>
             );

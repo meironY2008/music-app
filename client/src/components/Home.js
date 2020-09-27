@@ -16,12 +16,12 @@ export default function Home() {
         const { data } = await axios.get('/top/songs');
         const songsArr = data.map(song => {
             return (
-                <div key={song.Song_id}>
-                    <Link to={`/songs/${song.Song_id}`} className='carouselLink'>
+                <div key={song.id}>
+                    <Link to={`/songs/${song.id}`} className='carouselLink'>
                         <div className='song-icon-container'>
                             <LibraryMusicSharpIcon style={{height: "100px", width: "100px", margin: "1.5rem"}} />
                         </div>
-                        <div className ='carousel-text'>{song.Title}</div>
+                        <div className ='carousel-text'>{song.title}</div>
                     </Link>
                 </div>
             )
@@ -33,12 +33,12 @@ export default function Home() {
         const { data } = await axios.get('/top/albums');
         const albumsArr = data.map(album => {
             return (
-                <div key={album.Album_id}>
-                    <Link to={`/albums/${album.Album_id}`} className='carouselLink'>
+                <div key={album.id}>
+                    <Link to={`/albums/${album.id}`} className='carouselLink'>
                         <div className='carousel-image-container'>
-                            <img className='carousel-image' src={album.Cover_img}/>
+                            <img className='carousel-image' src={album.coverImg}/>
                         </div>
-                        <div className ='carousel-text'>{album.Album_Name}</div>
+                        <div className ='carousel-text'>{album.albumName}</div>
                     </Link>
                 </div>
             );
@@ -50,12 +50,12 @@ export default function Home() {
         const { data } = await axios.get('/top/artists');
         const artistsArr = data.map(artist => {
             return (
-                <div key={artist.Artist_id}>
-                    <Link to={`/artists/${artist.Artist_id}`} className='carouselLink'>
+                <div key={artist.id}>
+                    <Link to={`/artists/${artist.id}`} className='carouselLink'>
                         <div className='carousel-image-container'>
-                            <img className='carousel-image' src={artist.Cover_img}/>
+                            <img className='carousel-image' src={artist.coverImg}/>
                         </div>
-                        <div className ='carousel-text'>{artist.Artist_Name}</div>
+                        <div className ='carousel-text'>{artist.artistName}</div>
                     </Link>
                 </div>
             )
@@ -67,12 +67,12 @@ export default function Home() {
         const { data } = await axios.get('/top/playlists');
         const playlistsArr = data.map(playlist => {
             return (
-                <div key={playlist.Playlist_id}>
-                    <Link to={`/playlists/${playlist.Playlist_id}`} className='carouselLink'>
+                <div key={playlist.id}>
+                    <Link to={`/playlists/${playlist.id}`} className='carouselLink'>
                         <div className='carousel-image-container'>
-                            <img className='carousel-image' src={playlist.Cover_img}/>
+                            <img className='carousel-image' src={playlist.coverImg}/>
                         </div>
-                        <div className ='carousel-text'>{playlist.Playlist_Name}</div>
+                        <div className ='carousel-text'>{playlist.playlistName}</div>
                     </Link>
                 </div>
             )

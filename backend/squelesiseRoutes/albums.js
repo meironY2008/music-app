@@ -7,7 +7,7 @@ router.route('/')
 .get(async (req,res)=>{
    const allAlbum = await Album.findAll({include:[{
         model: Artist,
-        attributes:['artist_name']
+        attributes:['artistName']
         }],
         raw:true
     })
@@ -16,7 +16,7 @@ router.route('/')
 .post(async(req,res)=>{
     try{ 
         const newAalbum = await Album.create(req.body);
-        return res.status(201).json({newAalbum})
+        return res.status(201).json(newAalbum)
     }
     catch(err){
         return res.status(500).send({error: err.message})
@@ -28,11 +28,12 @@ router.route('/:id')
     try{
         const specAlbum = await Album.findByPk(req.params.id,{include:[{
             model: Artist,
-            attributes:['artist_name']
+            attributes:['artistName',"coverImg"]
             }],
-            raw:true
+            // raw:true
         })
-        return res.status(200).json({specAlbum});
+        const songsOfAlbum = await specAlbum.getSongs();
+        return res.status(200).json( {album:specAlbum,songs:songsOfAlbum});
     }
     catch(err){
         return res.status(500).send({error:err.message});

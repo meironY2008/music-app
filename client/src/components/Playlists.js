@@ -12,12 +12,12 @@ export default function Playlists() {
         const playlistsArr = data;
         setPlaylists(playlistsArr.map(playlist => {
             return (
-                <div key={playlist.Playlist_id}>
-                    <Link to={`/playlists/${playlist.Playlist_id}`} className='playlistLink'>
+                <div key={playlist.id}>
+                    <Link to={`/playlists/${playlist.id}`} className='playlistLink'>
                         <div className='playlistImageContainer'>
-                            <img src={playlist.Cover_img} alt={playlist.Playlist_Name} className='playlistImage' />
+                            <img src={playlist.coverImg} alt={playlist.playlistName} className='playlistImage' />
                         </div>
-                        <div className='playlistName'>{playlist.Playlist_Name}</div>
+                        <div className='playlistName'>{playlist.playlistName}</div>
                     </Link>
                 </div>
             );

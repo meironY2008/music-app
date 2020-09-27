@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     preferences: DataTypes.JSON,
     remeberToken: DataTypes.BOOLEAN
   }, {
+    paranoid:true,
     sequelize,
     modelName: 'User',
   });

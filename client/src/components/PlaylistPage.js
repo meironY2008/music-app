@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import './PlaylistPage.css';
 import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
+import lengthTime from '../function/lengthTime';
+
 
 export default function PlaylistPage() {
     
@@ -11,28 +13,33 @@ export default function PlaylistPage() {
 
     const { id } = useParams();
 
-    const showPlaylistInfo = async () => {
-        const { data } = await axios.get('/playlists');
-        // console.log(data);
-        setPlaylistInfo(data.find(playlist => playlist.Playlist_id == id));
-    }
+//     const lengthTime = (length)=>{
+//         let second = length % 60;
+//         let minute =Math.floor( length / 60);
+//         if(second < 10){
+//             second="0"+second;
+//         }
+//         if(minute < 10){
+//             minute="0"+minute;
+//         }
+//         let lengthStr=minute+':'+second;
+//         return lengthStr;
+//    }
 
-    const showSongsList = async () => {
-        const songs = await getSongs();
-        // console.log(songs);
-        const { data } = await axios.get(`/playlists/songs/${id}`);
+    const showPlaylistInfo = async () => {
+        console.log(id)
+        const { data } = await axios.get(`/playlists/${id}`);
+         console.log(data);
+        setPlaylistInfo(data.playlist);
         let songsArr = [];
-        for (let i = 0; i < data.length; i++) {
-            songsArr.push(songs.find(song => song.Song_id == data[i].Song_id));
-        }
-        songsArr = songsArr.map(song => {
+        songsArr = data.songs.map(song => {
             // console.log(song.Song_id);
             return (
-                <div key={song.Song_id}>
-                    <Link to={`/songs/${song.Song_id}?playlist=${id}`} className='playlistPageLink'>
+                <div key={song.id}>
+                    <Link to={`/songs/${song.id}?playlist=${id}`} className='playlistPageLink'>
                         <div className='songTitleContainer'>
                             <span className='artistSongTitle'><LibraryMusicSharpIcon /><span style={{marginLeft: "5px"}}>{song.Title}</span></span>
-                            <span style={{fontSize: "0.8em"}}>{song.Length.substring(3)}</span>
+                            <span style={{fontSize: "0.8em"}}>{lengthTime(song.Length)}</span>
                         </div>
                     </Link>
                 </div>
@@ -41,22 +48,17 @@ export default function PlaylistPage() {
         setSongList(songsArr);
     }
 
-    const getSongs = async () => {
-        const { data } = await axios.get('/songs');
-        return data;
-    }
-
+   
     useEffect(() => {
         showPlaylistInfo();
-        showSongsList();
     }, []);
     
     return (
         <div>
-            <h1 id='playlistName'>{playlistInfo.Playlist_Name}</h1>
+            <h1 id='playlistName'>{playlistInfo.playlistName}</h1>
             <div id='playlistWrapper'>
                 <div id='playlistImageContainer'>
-                    <img src={playlistInfo.Cover_img} alt={playlistInfo.Playlist_Name} id='playlistPageImage' />
+                    <img src={playlistInfo.coverImg} alt={playlistInfo.playlistName} id='playlistPageImage' />
                 </div>
                 <section id='playlist-song-section'>
                     <h3 id='songs-of-playlist'>Songs</h3>
