@@ -8,8 +8,7 @@ router.route('/')
    const allAlbum = await Album.findAll({include:[{
         model: Artist,
         attributes:['artistName']
-        }],
-        raw:true
+        }]
     })
    return res.json(allAlbum);
 })
@@ -29,8 +28,7 @@ router.route('/:id')
         const specAlbum = await Album.findByPk(req.params.id,{include:[{
             model: Artist,
             attributes:['artistName',"coverImg"]
-            }],
-            // raw:true
+            }]
         })
         const songsOfAlbum = await specAlbum.getSongs();
         return res.status(200).json( {album:specAlbum,songs:songsOfAlbum});
