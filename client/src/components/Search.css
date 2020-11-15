@@ -1,0 +1,58 @@
+.resultHeader {
+    text-align: center;
+  }
+  
+  .foundResultsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: 5px 0 5px 0;
+  }
+  
+  .resultImageContainer {
+    height: 75px;
+    width: 75px;
+    margin-right: 10px;
+  }
+  
+  .resultImage {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+  }
+  
+  .innerResultTextContainer {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  .innerResultHeader {
+    font-weight: bold;
+    transform: translateY(12px);
+    font-size: 15px;
+    margin: auto;
+  }
+  
+  .smallTextContainer {
+    transform: translateY(-12px);
+  }
+  
+  .smallResultText {
+    font-size: 12px;
+    margin: auto;
+  }
+  
+  .showAll {
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 300;
+  }
+  
+  .showAll:hover {
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: underline;
+      transform: scaleX(10px);
+      cursor: pointer;
+  }

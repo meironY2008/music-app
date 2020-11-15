@@ -8,6 +8,7 @@ import AlbumIcon from '@material-ui/icons/Album';
 import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import QueueMusicIcon from '@material-ui/icons/QueueMusic';
+import SearchIcon from '@material-ui/icons/Search';
 import { NavLink, Link } from 'react-router-dom';
 import logo from './logo-name.png';
 
@@ -41,6 +42,7 @@ export default function FadeMenu() {
         <MenuItem onClick={handleClose}><NavLink to="/playlists" className="menuOption"><PlaylistPlayIcon /><span>Playlists</span></NavLink></MenuItem>
         <MenuItem onClick={handleClose}><NavLink to="/albums" className="menuOption"><AlbumIcon /><span>Albums</span></NavLink></MenuItem>
         <MenuItem onClick={handleClose}><NavLink to="/artists" className="menuOption"><QueueMusicIcon /><span>Artists</span></NavLink></MenuItem>  
+        <MenuItem onClick={handleClose}><NavLink to="/search" className="menuOption"><SearchIcon /><span>Search</span></NavLink></MenuItem>  
       </Menu>
     </div>
   );

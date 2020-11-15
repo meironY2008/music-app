@@ -5,6 +5,7 @@ const albums = require('./squelesiseRoutes/albums');
 const songs = require('./squelesiseRoutes/songs');
 const playlists = require('./squelesiseRoutes/playlists');
 const top = require('./squelesiseRoutes/top');
+const search = require("./elastic/search");
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use('/albums',albums);
 app.use('/songs',songs);
 app.use('/playlists',playlists);
 app.use('/top',top);
+app.use('/search',search);
 
 
 app.listen(3001);

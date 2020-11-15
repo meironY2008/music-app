@@ -12,7 +12,7 @@ import PlaylistPage from './components/PlaylistPage';
 import Home from './components/Home';
 import Error from './components/Error';
 import FadeMenu from './components/Menu';
-
+import Search from './components/Search';
 
 function App() {
 
@@ -26,6 +26,7 @@ function App() {
             <Route path="/albums" component={Albums} exact />
             <Route path="/artists" component={Artists} exact />
             <Route path="/playlists" component={Playlists} exact />
+            <Route path="/search" component={Search} exact />
             <Route path="/artists/:id" component={ArtistPage} />
             <Route path="/albums/:id" component={AlbumPage} />
             <Route path="/playlists/:id" component={PlaylistPage} />
