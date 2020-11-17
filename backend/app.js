@@ -16,5 +16,4 @@ app.use('/playlists',playlists);
 app.use('/top',top);
 app.use('/search',search);
 
-
-app.listen(3001);
+module.exports = app;
